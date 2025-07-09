@@ -125,20 +125,28 @@ export default function MudendaCapital() {
             a strong regional presence, we turn opportunity into impact for
             companies and communities alike.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 bg-[#252826] text-white">
-            <div className="p-4 m-3 border-r-2 border-white">
+          <div className="grid grid-cols-1 md:grid-cols-4 bg-[#252826] text-white">
+            <div className="p-1 m-3 border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
-                Contract Mining
+                Private <br /> Equity
               </h3>
             </div>
-            <div className="p-4 m-3 border-r-2 border-white">
+            <div className="p-1 m-3 border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
-                Currency Trading
+                Investment <br />
+                Banking
               </h3>
             </div>
-            <div className="p-4 m-3">
+            <div className="p-1 m-3 border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
-                Mining Supplies
+                Project <br />
+                Financing
+              </h3>
+            </div>
+            <div className="p-1 m-3">
+              <h3 className="text-2xl text-center tracking-wider">
+                Purchase Order <br />
+                Financing
               </h3>
             </div>
           </div>

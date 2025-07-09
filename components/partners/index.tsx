@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import buildingfLf from "@/public/assets/8-lf.png";
 import buildingRt from "@/public/assets/8-rt.png";
-import clientLogos from "@/public/client logos/client logos.jpg";
+import clientLogos from "@/public/client logos/client logos 2.jpg";
 
 const Partners = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ const Partners = () => {
       </div> */}
 
       <div
-        className="bg-gradient-to-b from-[#0e0e0e] to-transparent py-20 px-4 md:px-6 bottom-0 left-0 z-[1]"
+        className="bg-gradient-to-b from-[#0e0e0e] to-transparent py-20 px-4 md:px-6 bottom-0 left-0 z-[1] w-full"
         style={{
           backgroundImage: `url('/placeholder.svg?height=800&width=1200')`,
           backgroundSize: "cover",
@@ -38,7 +38,7 @@ const Partners = () => {
         }}
       >
         <div className="container mx-auto">
-          <div className="text-center">
+          <div className="text-center flex flex-col justify-center items-center">
             <h1 className="text-4xl md:text-6xl xl:text-[6rem] text-yellow-500 mb-6 leading-tight">
               EQUITY, INVESTMENTS <span className="text-white">AND</span>{" "}
               PARTNERS
@@ -46,7 +46,7 @@ const Partners = () => {
             <Image
               src={clientLogos}
               alt="Mudenda Capital Client Logos"
-              className="mx-auto max-w-full h-auto"
+              className="max-w-full h-auto object-fit-contain px-10 pt-10"
             />
           </div>
         </div>
