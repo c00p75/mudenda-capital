@@ -37,16 +37,12 @@ export default function ContactPage() {
         <Image
           src={tree}
           alt="Mission"
-          className="absolute bottom-[-80%] left-[25%] transform -translate-x-1/2 scale-[150%] h-full object-contain"
+          className="absolute bottom-[-140%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full object-cover scale-[150%]"
         />
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-start">
-            {/* Left Side - Spinning Globe */}
-            <div className="relative flex items-start justify-start min-h-[32rem] ml-[-65%] scale-[140%]">
-              <SpinningGlobe />
-            </div>
+          <div className="flex justify-center items-center">
             {/* Right Side - Contact Form */}
-            <div className="bg-black/95 p-10 rounded shadow-lg z-[20]">
+            <div className="bg-black/80 p-10 rounded shadow-lg z-[20] w-full max-w-3xl">
               <h2 className="text-4xl font-bold mb-6 text-yellow-500">
                 Send us a Message
               </h2>
