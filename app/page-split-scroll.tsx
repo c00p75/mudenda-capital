@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function PageSplitScroll() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const leftHalfRef = useRef<HTMLDivElement>(null)
-  const rightHalfRef = useRef<HTMLDivElement>(null)
-  const revealContentRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const leftHalfRef = useRef<HTMLDivElement>(null);
+  const rightHalfRef = useRef<HTMLDivElement>(null);
+  const revealContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const container = containerRef.current
-    const leftHalf = leftHalfRef.current
-    const rightHalf = rightHalfRef.current
-    const revealContent = revealContentRef.current
+    const container = containerRef.current;
+    const leftHalf = leftHalfRef.current;
+    const rightHalf = rightHalfRef.current;
+    const revealContent = revealContentRef.current;
 
-    if (!container || !leftHalf || !rightHalf || !revealContent) return
+    if (!container || !leftHalf || !rightHalf || !revealContent) return;
 
     // Create the split animation
     const tl = gsap.timeline({
@@ -33,7 +33,7 @@ export default function PageSplitScroll() {
         pin: true,
         anticipatePin: 1,
       },
-    })
+    });
 
     // Animate the split
     tl.to(leftHalf, {
@@ -48,7 +48,7 @@ export default function PageSplitScroll() {
           duration: 1,
           ease: "power2.inOut",
         },
-        0,
+        0
       ) // Start at the same time as left half
       .to(
         revealContent,
@@ -58,26 +58,26 @@ export default function PageSplitScroll() {
           duration: 0.8,
           ease: "power2.out",
         },
-        0.3,
-      ) // Start slightly after the split begins
+        0.3
+      ); // Start slightly after the split begins
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   // Add this new useEffect after the existing one
   useEffect(() => {
-    const path = document.querySelector("#animated-path") as SVGPathElement
-    if (!path) return
+    const path = document.querySelector("#animated-path") as SVGPathElement;
+    if (!path) return;
 
-    const pathLength = path.getTotalLength()
+    const pathLength = path.getTotalLength();
 
     // Set initial state
     gsap.set(path, {
       strokeDasharray: pathLength,
       strokeDashoffset: pathLength,
-    })
+    });
 
     // Create line drawing animation
     gsap.to(path, {
@@ -90,8 +90,8 @@ export default function PageSplitScroll() {
         end: "bottom top",
         scrub: 1,
       },
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <div className="bg-black text-white">
@@ -115,21 +115,28 @@ export default function PageSplitScroll() {
       <section className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black">
         <div className="text-center">
           <h1 className="text-6xl font-bold mb-6">Scroll Down</h1>
-          <p className="text-xl text-gray-300">Experience the page split animation</p>
+          <p className="text-xl text-gray-300">
+            Experience the page split animation
+          </p>
         </div>
       </section>
 
       {/* Split animation container */}
       <div ref={containerRef} className="relative h-screen overflow-hidden">
         {/* Left half */}
-        <div ref={leftHalfRef} className="absolute inset-0 w-1/2 bg-black flex items-center justify-end pr-8 z-10">
+        <div
+          ref={leftHalfRef}
+          className="absolute inset-0 w-1/2 bg-black flex items-center justify-end pr-8 z-10"
+        >
           <div className="text-right max-w-md">
             <div className="flex justify-end mb-6">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                 <span className="text-black font-bold text-sm">GTC</span>
               </div>
             </div>
-            <h2 className="text-4xl font-bold leading-tight mb-6">Make your walls happ</h2>
+            <h2 className="text-4xl font-bold leading-tight mb-6">
+              Make your walls happ
+            </h2>
             <p className="text-lg text-gray-300 mb-8">
               combines accurate
               <br />
@@ -153,7 +160,9 @@ export default function PageSplitScroll() {
                 <span className="text-black font-bold text-sm">286</span>
               </div>
             </div>
-            <h2 className="text-4xl font-bold leading-tight mb-6">y with artwork that</h2>
+            <h2 className="text-4xl font-bold leading-tight mb-6">
+              y with artwork that
+            </h2>
             <p className="text-lg text-gray-300 mb-8">
               data and beautiful
               <br />
@@ -198,9 +207,11 @@ export default function PageSplitScroll() {
       <section className="h-screen flex items-center justify-center bg-gradient-to-br from-black to-gray-900">
         <div className="text-center">
           <h2 className="text-5xl font-bold mb-6">Continue Exploring</h2>
-          <p className="text-xl text-gray-300">The split animation is complete</p>
+          <p className="text-xl text-gray-300">
+            The split animation is complete
+          </p>
         </div>
       </section>
     </div>
-  )
+  );
 }

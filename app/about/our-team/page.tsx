@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import maybinMudenda from "@/public/team/1.jpeg";
 import namuyeMudenda from "@/public/team/2.jpg";
 import andrewSekandi from "@/public/team/3.jpeg";
@@ -33,7 +33,9 @@ const teamMembers = [
 ];
 
 export default function AboutPage() {
-  const [selectedMember, setSelectedMember] = useState(null);
+  const [selectedMember, setSelectedMember] = useState<
+    (typeof teamMembers)[0] | null
+  >(null);
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -115,23 +117,23 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row h-full">
                 <div className="w-full md:w-1/2 relative h-full">
                   <Image
-                    src={selectedMember.image}
-                    alt={selectedMember.name}
+                    src={(selectedMember as { image: StaticImageData }).image}
+                    alt={(selectedMember as { name: string }).name}
                     fill
                     className="object-cover grayscale"
                   />
                 </div>
                 <div className="p-6 flex-1">
                   <h2 className="text-3xl font-bold tracking-wider mb-2">
-                    {selectedMember.name}
+                    {(selectedMember as { name: string }).name}
                   </h2>
                   <p className="text-xl text-yellow-600 font-semibold mb-4">
-                    {selectedMember.title}
+                    {(selectedMember as { title: string }).title}
                   </p>
 
                   <div className="w-[35%] h-1 bg-yellow-500 my-5" />
                   <p className="text-gray-700 leading-relaxed text-xl">
-                    {selectedMember.bio}
+                    {(selectedMember as { bio: string }).bio}
                   </p>
                   <X
                     className="w-10 h-10 bg-yellow-500 rounded-full p-2 absolute top-5 right-5 cursor-pointer"

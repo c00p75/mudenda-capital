@@ -1,9 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import gsap from "gsap";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, RefObject } from "react";
 import Subscribe from "@/components/subscribe";
 import Projects from "@/components/projects";
 
@@ -94,7 +93,7 @@ export default function ServicesPage() {
   const imageRef4 = useRef(null);
   const textRef4 = useRef(null);
 
-  const animate = (imageRef, textRef) => {
+  const animate = (imageRef: RefObject<null>, textRef: RefObject<null>) => {
     if (imageRef.current && textRef.current) {
       gsap.fromTo(
         imageRef.current,

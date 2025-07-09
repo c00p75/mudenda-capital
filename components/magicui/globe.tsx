@@ -55,7 +55,7 @@ export default function SpinningGlobe() {
   }, []);
 
   return (
-    <div className="w-full h-screen ml-1/2">
+    <div className="w-full h-screen">
       <Globe
         ref={globeEl}
         globeImageUrl="/globe-3.png"

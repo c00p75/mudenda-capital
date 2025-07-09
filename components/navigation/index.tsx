@@ -55,10 +55,10 @@ export default function NavHeader() {
 
             {/* Dropdown Menu */}
             {isAboutHovered && (
-              <div className="absolute top-full left-0 w-56 bg-white backdrop-blur-sm py-2 z-50">
+              <div className="absolute top-full left-0 w-56 bg-white shadow-md backdrop-blur-sm py-2 z-50">
                 <Link
                   href="about/our-services"
-                  className={`block px-4 py-2 text-lg font-semibold transition-colors ${
+                  className={`block px-4 py-2 font-semibold transition-colors ${
                     pathname === "about/our-services"
                       ? "text-yellow-500 bg-gray-800/50"
                       : "text-black hover:text-yellow-500"
@@ -68,7 +68,7 @@ export default function NavHeader() {
                 </Link>
                 <Link
                   href="/about/our-team"
-                  className={`block px-4 py-2 text-lg font-semibold transition-colors ${
+                  className={`block px-4 py-2 font-semibold transition-colors ${
                     pathname === "/team"
                       ? "text-yellow-500 bg-gray-800/50"
                       : "text-black hover:text-yellow-500"

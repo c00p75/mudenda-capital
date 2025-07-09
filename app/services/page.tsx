@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { Search, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function MiningWebsite() {

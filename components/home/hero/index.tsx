@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -7,10 +8,11 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import logoLf from "@/public/logos/logo-lf.png";
 import logoRt from "@/public/logos/logo-rt.png";
-import logo from "@/public/logos/logo-1.png";
-import logoLfBlur from "@/public/logos/logo-lf-blur.png";
-import logoRtBlur from "@/public/logos/logo-rt-blur.png";
-import SpinningGlobe from "@/components/magicui/globe";
+import dynamic from "next/dynamic";
+
+const SpinningGlobe = dynamic(() => import("@/components/magicui/globe"), {
+  ssr: false,
+});
 
 const HomeHeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);

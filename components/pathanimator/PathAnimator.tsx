@@ -1,12 +1,12 @@
 // components/pathanimator/PathAnimator.tsx
 "use client";
+export const dynamic = "force-dynamic";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function PathAnimator() {
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
-  const [scrollPercent, setScrollPercent] = useState<number>(0);
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -15,6 +15,8 @@ export default function PathAnimator() {
     if (!svg || !path) return;
 
     const updateDimensionsAndPath = () => {
+      if (typeof window === "undefined" || typeof document === "undefined")
+        return;
       const viewportWidth = window.innerWidth;
       const docHeight = document.documentElement.scrollHeight;
       const centerX = viewportWidth / 2;
@@ -42,24 +44,31 @@ export default function PathAnimator() {
       path.style.strokeDashoffset = `${pathLength}`;
 
       const handleScroll = () => {
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
         const scrollTop = window.scrollY;
         const maxScroll =
           document.documentElement.scrollHeight - window.innerHeight;
         const percent = Math.min(scrollTop / maxScroll, 1);
-        setScrollPercent(percent);
         const offset = pathLength * (1 - percent);
         path.style.strokeDashoffset = `${offset}`;
       };
 
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      handleScroll();
+      if (typeof window !== "undefined") {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+      }
     };
 
-    updateDimensionsAndPath();
-    window.addEventListener("resize", updateDimensionsAndPath);
+    if (typeof window !== "undefined") {
+      updateDimensionsAndPath();
+      window.addEventListener("resize", updateDimensionsAndPath);
+    }
 
     return () => {
-      window.removeEventListener("resize", updateDimensionsAndPath);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", updateDimensionsAndPath);
+      }
     };
   }, []);
 

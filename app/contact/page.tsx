@@ -1,6 +1,12 @@
-import SpinningGlobe from "@/components/magicui/globeDark";
+"use client";
+
 import Image from "next/image";
 import tree from "@/public/logos/tree.png";
+import dynamic from "next/dynamic";
+
+const SpinningGlobe = dynamic(() => import("@/components/magicui/globeDark"), {
+  ssr: false,
+});
 
 export default function ContactPage() {
   return (
