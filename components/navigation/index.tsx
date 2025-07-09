@@ -101,14 +101,14 @@ export default function NavHeader() {
             )}
           </div> */}
 
-          <Link
+          {/* <Link
             href="/blog"
             className={`transition-colors ${
               pathname === "/blog" ? "text-yellow-500" : "hover:text-yellow-500"
             }`}
           >
             BLOG
-          </Link>
+          </Link> */}
           <Link
             href="/contact"
             className={`transition-colors ${
