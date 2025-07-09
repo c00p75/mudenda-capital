@@ -11,7 +11,8 @@ const Footer = () => {
           <p>
             Mudenda Capital Partners Pty Ltd
             <br />
-            Atrium on 5th Street, Sandton Gauteng, Johannesburg, South Africa
+            AS05, Grosvenor Square, Park Lane, Centure City, Cape Town, South
+            Africa.
           </p>
         </div>
         <div>

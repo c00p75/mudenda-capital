@@ -300,62 +300,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Purchase Order Financing Section */}
-      <section className="py-20 px-6 bg-black text-white">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div ref={imageRef4}>
-                <Image
-                  src={purchaseOrderFinancingItems[activeIndex4].image}
-                  alt={purchaseOrderFinancingItems[activeIndex4].title}
-                  width={600}
-                  height={400}
-                  className=""
-                />
-              </div>
-              <div
-                className="absolute bottom-4 right-4 bg-[#252826]/90 text-white p-10 max-w-md"
-                ref={textRef4}
-              >
-                <p className="text-xl">
-                  {purchaseOrderFinancingItems[activeIndex4].text}
-                </p>
-              </div>
-            </div>
-
-            <div className="text-right">
-              <h2 className="text-8xl font-bold mb-6 uppercase">
-                Purchase Order Financing
-              </h2>
-              <p className="text-2xl mb-8">
-                Our purchase order (PO) financing helps businesses execute large
-                orders or contracts without upfront capital. Mudenda Capital
-                provides the working capital needed to fulfill supply contracts,
-                repaid once the buyer pays.
-              </p>
-              <div className="w-[80%] h-2 bg-yellow-500 mb-8 flex justify-self-end" />
-
-              <div className="space-y-4 text-4xl tracking-wider pl-40">
-                {purchaseOrderFinancingItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className={`cursor-pointer border-b-4 border-gray-400/20 py-4 pr-4 transition-all duration-300 text-left lg:text-right ${
-                      index === activeIndex4
-                        ? "border-r-4 border-r-yellow-500"
-                        : "border-r-4 border-r-transparent hover:border-r-yellow-300"
-                    }`}
-                    onMouseEnter={() => setActiveIndex4(index)}
-                  >
-                    <h3>{item.title}</h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Projects Section */}
       <Projects />
 
