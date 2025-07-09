@@ -3,9 +3,12 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Globe, Users } from "lucide-react";
+import { Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { Globe } from "@/components/magicui/globe";
+import Image from "next/image";
+import buildings from "@/public/buildings.png";
+import HomeHeroSection from "@/components/home/hero";
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -95,6 +98,7 @@ export default function MudendaCapital() {
 
   return (
     <div className="bg-black text-white overflow-x-hidden">
+      <HomeHeroSection />
       {/* Animated line path */}
       <svg
         className="fixed inset-0 w-full h-full pointer-events-none z-40"
@@ -113,8 +117,16 @@ export default function MudendaCapital() {
       </svg>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-between px-6 pt-20">
-        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="min-h-screen flex items-center justify-between px-6 pt-20 relative">
+        <div className="absolute mt-20 inset-0 flex items-center justify-center w-full h-full">
+          {/* <Globe /> */}
+          {/* <Image
+            src={buildings}
+            alt="Mudenda Capital"
+            className="w-1/4 object-cover absolute left-0 top-60"
+          /> */}
+        </div>
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-[2]">
           <div className="space-y-8">
             <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
               YOUR <span className="text-yellow-500">AFRICAN</span>
@@ -124,12 +136,6 @@ export default function MudendaCapital() {
             <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-none">
               WORK WITH US
             </Button>
-          </div>
-          <div className="flex justify-center">
-            <div className="relative w-96 h-96">
-              <Globe className="w-full h-full text-gray-600" />
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-full"></div>
-            </div>
           </div>
         </div>
       </section>
@@ -142,7 +148,7 @@ export default function MudendaCapital() {
             <p className="text-lg text-gray-300 leading-relaxed">
               Mudenda Capital is an international commodity trading company.
               From inception to date, we have evolved strategically to become
-              one of Africa's most trusted commodity trading companies.
+              one of Africa&apos;s most trusted commodity trading companies.
             </p>
             <br />
             <p className="text-lg text-gray-300 leading-relaxed">
@@ -231,57 +237,6 @@ export default function MudendaCapital() {
           </div>
         </div>
       </section>
-
-      {/* Split Animation Container */}
-      <div ref={containerRef} className="relative h-screen overflow-hidden">
-        {/* Left half */}
-        <div
-          ref={leftHalfRef}
-          className="absolute inset-0 w-1/2 bg-black flex items-center justify-end pr-8 z-10"
-        >
-          <div className="text-right max-w-md">
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              Mudenda Capital Partners Pty assists clients with multiple
-              interactive services into the huge untapped market with a recipe
-              to success. Our methods have been tried and tested by major expert
-              analysts and traders approving our successful formula.
-            </p>
-          </div>
-        </div>
-
-        {/* Right half */}
-        <div
-          ref={rightHalfRef}
-          className="absolute inset-0 left-1/2 w-1/2 bg-black flex items-center justify-start pl-8 z-10"
-        >
-          <div className="text-left max-w-md">
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              With professional background credibility, MUDENDA CAPITAL is your
-              trade partner of choice on the African continent.
-            </p>
-          </div>
-        </div>
-
-        {/* Revealed content behind */}
-        <div
-          ref={revealContentRef}
-          className="absolute inset-0 flex items-center justify-center opacity-0 scale-90"
-          style={{
-            backgroundImage: `url('/placeholder.svg?height=800&width=1200')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="text-center bg-black/70 p-8 rounded-lg backdrop-blur-sm">
-            <h3 className="text-3xl font-bold mb-4 text-white">
-              AFRICAN MARKETS
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Connecting opportunities across the continent
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* Equity and Partners Section */}
       <section className="py-20 px-6 bg-gray-900">

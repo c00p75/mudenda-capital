@@ -1,5 +1,5 @@
-import MudendaCapital from "./mudenda-capital"
+import MudendaCapital from "@/components/home";
 
 export default function Home() {
-  return <MudendaCapital />
+  return <MudendaCapital />;
 }

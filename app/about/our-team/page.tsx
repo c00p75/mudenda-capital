@@ -1,0 +1,181 @@
+// Imports and setup remain
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import maybinMudenda from "@/public/team/1.jpeg";
+import namuyeMudenda from "@/public/team/2.jpg";
+import andrewSekandi from "@/public/team/3.jpeg";
+import tree from "@/public/logos/tree.png";
+import subscribeBg from "@/public/assets/10.png";
+import { X } from "lucide-react";
+import gsap from "gsap";
+
+const teamMembers = [
+  {
+    name: "MAYBIN MUDENDA",
+    title: "Chief Executive",
+    image: maybinMudenda,
+    bio: "Maybin Mudenda is a highly accomplished entrepreneur and business leader who founded African Grey Insurance in Zambia and currently serves as the Executive Chairman of Mudenda Capital Partners South Africa. He is also the Board Chairman of Insizwe Private Brokers and an active member of the boards of the American Chamber of Commerce and the French Business Circle.",
+  },
+  {
+    name: "NAMUYE MUDENDA",
+    title: "Head - Finance & Admin",
+    image: namuyeMudenda,
+    bio: "Namuye has over 15 years of experience in financial operations, including USAID funded projects, and in the commodity logistics and commodity insurance sectors as Managing Director at Insizwe Insurance Brokers. Her expertise spans budgeting, compliance, and stakeholder coordination. At Seneca, she oversees internal financial controls, reporting, and administrative systems, ensuring the company operates with efficiency, transparency, and accountability.",
+  },
+  {
+    name: "ANDREW SEKANDI",
+    title: "Head of Legal",
+    image: andrewSekandi,
+    bio: "Andrew Sekandi is a seasoned professional with nearly two decades of experience in the natural resources sector, specializing in equity and debt financing, royalty and streaming agreements, and SPAC transactions.",
+  },
+];
+
+export default function AboutPage() {
+  const [selectedMember, setSelectedMember] = useState(null);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedMember && modalRef.current) {
+      gsap.fromTo(
+        modalRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
+      );
+    }
+  }, [selectedMember]);
+
+  return (
+    <div className="bg-black text-white overflow-x-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-[30rem] flex items-end">
+        <div
+          className="absolute inset-0 bg-cover bg-top mt-20 w-full h-full"
+          style={{ backgroundImage: `url('/assets/6.png')` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-10% via-black/50 to-black/10" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="ml-28 max-w-2xl">
+            <p className="text-white font-bold text-3xl mb-4">About us.</p>
+            <h1 className="text-6xl lg:text-8xl tracking-wide font-semibold text-yellow-500 leading-tight">
+              Our Executive Team
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="px-6 bg-gray-100 relative overflow-hidden text-black">
+        <Image
+          src={tree}
+          alt="Mission"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full scale-150 object-contain"
+        />
+        <div className="container mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 p-32 gap-8">
+            {teamMembers.map((member, i) => (
+              <div
+                key={i}
+                className="p-3 cursor-pointer"
+                onClick={() => setSelectedMember(member)}
+              >
+                <div className="aspect-square bg-gray-300 relative overflow-hidden rounded-md shadow-lg">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover grayscale"
+                  />
+                  <div className="absolute p-6 bg-[#252826]/80 w-[80%] text-white top-[70%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <h3 className="text-2xl mb-2 tracking-wider">
+                      {member.name}
+                    </h3>
+                    <p className="text-white text-xl">{member.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Modal */}
+        {selectedMember && (
+          <div
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6"
+            onClick={() => setSelectedMember(null)}
+          >
+            <div
+              ref={modalRef}
+              className="bg-white text-black rounded-lg shadow-2xl w-[80%] h-[80%] overflow-hidden relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex flex-col md:flex-row h-full">
+                <div className="w-full md:w-1/2 relative h-full">
+                  <Image
+                    src={selectedMember.image}
+                    alt={selectedMember.name}
+                    fill
+                    className="object-cover grayscale"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <h2 className="text-3xl font-bold tracking-wider mb-2">
+                    {selectedMember.name}
+                  </h2>
+                  <p className="text-xl text-yellow-600 font-semibold mb-4">
+                    {selectedMember.title}
+                  </p>
+
+                  <div className="w-[35%] h-1 bg-yellow-500 my-5" />
+                  <p className="text-gray-700 leading-relaxed text-xl">
+                    {selectedMember.bio}
+                  </p>
+                  <X
+                    className="w-10 h-10 bg-yellow-500 rounded-full p-2 absolute top-5 right-5 cursor-pointer"
+                    onClick={() => setSelectedMember(null)}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-32 pl-28 text-white bg-black relative">
+        <Image
+          src={subscribeBg}
+          alt=""
+          className="absolute top-0 right-0 w-1/2 h-full object-cover"
+        />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-r from-black via-90% via-black/50 to-transparent" />
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
+          <div className="pb-12 md:mb-0 flex flex-col flex-1 overflow-visible z-[2]">
+            <h3 className="text-8xl tracking-wide mb-2">
+              Let’s start something great together!
+              <div className="w-[35%] h-2 mt-3 bg-yellow-500" />
+            </h3>
+            <p className="bg-[#252826]/95 w-fit max-w-xl py-5 px-10 text-xl mt-5">
+              Subscribe to our newsletter or email us at info@mudendacapital.com
+            </p>
+            <div className="relative w-full h-full mt-10">
+              <div className="relative flex flex-col gap-10 w-full max-w-[30rem] text-xl">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  className="px-4 py-6 h-14 rounded-full placeholder:text-white bg-[#939393] w-full border-gray-800 border-4 focus:outline-none focus:border-yellow-500"
+                />
+                <button className="flex items-center justify-center cursor-pointer bg-yellow-500 text-xl text-white font-semibold px-20 py-6 h-14 rounded-lg w-fit">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
