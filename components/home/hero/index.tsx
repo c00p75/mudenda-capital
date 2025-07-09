@@ -102,11 +102,14 @@ const HomeHeroSection = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative h-screen overflow-visible">
+    <section
+      ref={containerRef}
+      className="relative h-screen overflow-visible bg-black text-white z-[2]"
+    >
       {/* Left half */}
       <div
         ref={leftHalfRef}
-        className="absolute inset-0 w-1/2 bg-black flex items-center justify-end z-10"
+        className="absolute inset-0 w-1/2 flex items-center justify-end z-20"
       >
         {/* <Image
           src={logoLfBlur}
@@ -119,7 +122,7 @@ const HomeHeroSection = () => {
       {/* Right half */}
       <div
         ref={rightHalfRef}
-        className="absolute inset-0 left-1/2 w-1/2 bg-black flex items-center justify-start z-10"
+        className="absolute inset-0 left-1/2 w-1/2 flex items-center justify-start z-10"
       >
         {/* <Image
           src={logoRtBlur}
@@ -132,7 +135,7 @@ const HomeHeroSection = () => {
       {/* Revealed content behind */}
       <div
         ref={revealContentRef}
-        className="absolute inset-0 flex items-center justify-center opacity-0 scale-90 bg-gradient-to-b from-[#0e0e0e] to-transparent"
+        className="absolute inset-0 flex items-center justify-center opacity-0 scale-90"
         style={{
           backgroundImage: `url('/placeholder.svg?height=800&width=1200')`,
           backgroundSize: "cover",
@@ -162,7 +165,7 @@ const HomeHeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

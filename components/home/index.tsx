@@ -8,15 +8,16 @@ import contractMining from "@/public/assets/14.png";
 import Partners from "@/components/partners";
 import Subscribe from "@/components/subscribe";
 import GsapPathAnimation from "./GsapPathAnimation";
+import tree from "@/public/logos/tree.png";
 
 export default function MudendaCapital() {
   return (
-    <div className="bg-black text-white overflow-x-hidden relative">
+    <div className="overflow-x-hidden relative">
       {/* Mount GSAP animation effect */}
       <GsapPathAnimation />
 
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-0"
         viewBox="1500 0 900 3000"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -34,10 +35,10 @@ export default function MudendaCapital() {
       <HomeHeroSection />
 
       {/* WHO WE ARE */}
-      <section className="py-14 px-6 max-w-3xl path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
-        <div className="container mx-auto ml-20 bg-[black]/95 p-8 backdrop-blur-sm">
+      <section className="bg-white relative z-[1] text-black w-screen py-14 px-6 path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700 overflow-hidden">
+        <div className="container mx-auto ml-20  p-8 backdrop-blur-sm">
           <h2 className="text-8xl font-bold mb-12">WHO WE ARE</h2>
-          <p className="text-xl text-white leading-relaxed">
+          <p className="text-xl leading-relaxed">
             Mudenda Capital is a Pan-African investment and trade finance firm
             with a strong foundation in commodity trading. Since inception, we
             have strategically evolved into a leading player in{" "}
@@ -56,15 +57,21 @@ export default function MudendaCapital() {
       </section>
 
       {/* MISSION */}
-      <section className="py-20 px-6 flex justify-center relative path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
+      <section className="bg-white z-[2] text-black py-20 px-6 flex justify-end relative path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
         <Image
           src={mission}
           alt="Mission"
           width={1000}
           height={1000}
-          className="absolute top-0 left-28 w-[30em] h-[30em] object-contain"
+          className="absolute top-10 right-[30%] w-[35em] h-[20em] object-cover border-2 border-black/20"
         />
-        <div className="container mt-40 bg-[#252826]/95 p-8 backdrop-blur-sm max-w-2xl">
+
+        <Image
+          src={tree}
+          alt="Mission"
+          className="absolute top-[-40%] left-[-15%] w-[50em] object-cover"
+        />
+        <div className="container mt-20 bg-black text-white p-8 backdrop-blur-sm max-w-2xl">
           <div className="p-8">
             <h2 className="text-8xl font-bold mb-6 border-l-4 border-yellow-500 pl-4">
               MISSION
@@ -80,20 +87,20 @@ export default function MudendaCapital() {
       </section>
 
       {/* VISION */}
-      <section className="py-20 px-6 flex justify-center relative path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
+      <section className="bg-black z-[5] py-20 px-6 flex justify-start relative path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
         <Image
           src={vision}
           alt="Vision"
           width={1000}
           height={1000}
-          className="absolute -bottom-28 right-28 w-[30em] h-[30em] object-contain"
+          className="absolute -bottom-28 right-[20%] w-[30em] h-[30em] object-contain"
         />
-        <div className="container bg-[#252826]/95 p-8 backdrop-blur-sm max-w-2xl">
+        <div className="container bg-white md:ml-[10%] text-black p-8 backdrop-blur-sm max-w-2xl">
           <div className="p-8">
             <h2 className="text-8xl font-bold mb-6 border-l-4 border-yellow-500 pl-4">
               VISION
             </h2>
-            <p className="text-white leading-relaxed text-xl">
+            <p className="text-black leading-relaxed text-xl">
               To deliver exceptional, personalised and flexible service to our
               trade clients through a strict guideline of honesty and integrity.
             </p>
@@ -102,7 +109,7 @@ export default function MudendaCapital() {
       </section>
 
       {/* WHAT WE DO */}
-      <section className="py-20 mt-20 flex w-full path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
+      <section className="bg-black z-[4] relative py-20 flex w-full path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
         <div className="container md:w-1/2 bg-[black]/95 p-8 backdrop-blur-sm md:pl-28">
           <h2 className="text-8xl font-bold mb-8 text-yellow-500">
             What We Do
@@ -118,7 +125,7 @@ export default function MudendaCapital() {
             a strong regional presence, we turn opportunity into impact for
             companies and communities alike.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 bg-[#252826]">
+          <div className="grid grid-cols-1 md:grid-cols-3 bg-[#252826] text-white">
             <div className="p-4 m-3 border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
                 Contract Mining

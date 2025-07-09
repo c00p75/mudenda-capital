@@ -31,8 +31,30 @@ export default function NavHeader() {
             HOME
           </Link>
 
+          <Link
+            href="/about/our-services"
+            className={`transition-colors ${
+              pathname === "/about/our-services"
+                ? "text-yellow-500"
+                : "hover:text-yellow-500"
+            }`}
+          >
+            SERVICES
+          </Link>
+
+          <Link
+            href="/about/our-team"
+            className={`transition-colors ${
+              pathname === "/about/our-team"
+                ? "text-yellow-500"
+                : "hover:text-yellow-500"
+            }`}
+          >
+            TEAM
+          </Link>
+
           {/* About Us Dropdown */}
-          <div
+          {/* <div
             className="relative"
             onMouseEnter={() => setIsAboutHovered(true)}
             onMouseLeave={() => setIsAboutHovered(false)}
@@ -52,8 +74,7 @@ export default function NavHeader() {
                 }`}
               />
             </div>
-
-            {/* Dropdown Menu */}
+            
             {isAboutHovered && (
               <div className="absolute top-full left-0 w-56 bg-white shadow-md backdrop-blur-sm py-2 z-50">
                 <Link
@@ -78,7 +99,7 @@ export default function NavHeader() {
                 </Link>
               </div>
             )}
-          </div>
+          </div> */}
 
           <Link
             href="/blog"

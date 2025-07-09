@@ -56,7 +56,7 @@ export default function AboutPage() {
           className="absolute inset-0 bg-cover bg-top mt-20 w-full h-full"
           style={{ backgroundImage: `url('/assets/6.png')` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-10% via-black/50 to-black/10" />
+          <div className="absolute inset-0 bg-black/80" />
         </div>
 
         <div className="relative z-10 container mx-auto px-6">
