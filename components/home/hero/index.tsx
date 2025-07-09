@@ -153,7 +153,7 @@ const HomeHeroSection = () => {
           </div>
           <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-[2]">
             <div className="space-y-8">
-              <h1 className="text-6xl xl:text-[9rem] font-bold leading-tight">
+              <h1 className="text-6xl xl:text-[8rem] font-bold leading-tight">
                 YOUR <span className="text-yellow-500">AFRICAN</span>
                 <br />
                 <span className="text-yellow-500">TRADE</span> PARTNER
