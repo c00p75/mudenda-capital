@@ -9,9 +9,11 @@ const Footer = () => {
           <p>
             Mudenda Capital Partners Pty Ltd
             <br />
-            Any City, ST 12345
+            Atrium on 5th Street, Sandton Gauteng, Johannesburg, South Africa
             <br />
-            (123) 456-7890
+            (+260) 965-860-368
+            <br />
+            (+271) 000-30790
             <br />
             email: info@mudendacapital.com
           </p>
