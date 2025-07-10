@@ -28,7 +28,12 @@ const teamMembers = [
     name: "ANDREW SEKANDI",
     title: "Head of Legal",
     image: andrewSekandi,
-    bio: "Andrew Sekandi is a seasoned professional with nearly two decades of experience in the natural resources sector, specializing in equity and debt financing, royalty and streaming agreements, and SPAC transactions.",
+    bio: `Andrew has nearly 20 years of professional services and executive experience focused on Africa, with exposure to diverse sectors including private equity, corporate finance, energy, and natural resources. 
+Andrew started his career as a lawyer in Namibia supporting cross-border capital markets transactions. He then relocated to the United Kingdom to work for global consulting firms, including as an Associate Director at KPMG in London. As a consultant, he advised major institutional investors, sovereign-related entities, and Fortune 500 companies on market entry, due diligence, and risk mitigation in more than 15 African countries. 
+Andrew has also served in the founding and executive management teams for publicly listed and private companies, where he participated in transactions involving equity and debt financing, royalty and streaming agreements, reverse takeovers, and SPACs. 
+His current portfolio of interests includes private investments and board-level involvement in commodity trading & logistics, mining and asset management. 
+Andrew holds Bachelor of Arts and LLB (Law) degrees from the University of Cape Town, and is the Acting Chairman of Save The Children UK’s Africa Advisory Board. 
+`,
   },
 ];
 
@@ -141,7 +146,7 @@ export default function AboutPage() {
                   </p>
 
                   <div className="w-[35%] h-1 bg-yellow-500 my-5" />
-                  <p className="text-gray-700 leading-relaxed text-xl">
+                  <p className="text-gray-700 leading-relaxed text-xl overflow-auto max-h-[50vh]">
                     {(selectedMember as { bio: string }).bio}
                   </p>
                   <X

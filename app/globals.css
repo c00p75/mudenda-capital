@@ -131,3 +131,7 @@
     font-variation-settings: "wdth" 100;
   }
 }
+
+.fill-available {
+  height: -webkit-fill-available !important;
+}

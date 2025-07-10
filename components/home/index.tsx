@@ -145,13 +145,13 @@ export default function MudendaCapital() {
             </div>
           </div>
         </div>
-        <div className="hidden md:flex h-full items-end p-10">
+        <div className="hidden md:flex h-full items-end p-10 fill-available">
           <Image
             src={building2}
             alt="Contract Mining"
             width={1000}
             height={1000}
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover fill-available"
           />
         </div>
       </section>
