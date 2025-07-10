@@ -100,7 +100,7 @@ const Partners = () => {
         />
         <div
           ref={paragraphRef}
-          className="absolute md:left-[80%] left-[100%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/85 p-8 md:w-[90%] w-[95vw] transform will-change-transform"
+          className="z-[10] absolute md:left-[80%] left-[100%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/85 p-8 md:w-[90%] w-[95vw] transform will-change-transform"
         >
           <div className="md:p-8 p-4">
             <p className="text-white leading-relaxed text-2xl">
@@ -120,7 +120,7 @@ const Partners = () => {
       {/* Right half */}
       <div
         ref={rightHalfRef}
-        className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-20"
+        className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-[9]"
       >
         <Image
           src={buildingRt}
