@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="py-16 px-28 text-white text-lg bg-black border-t border-[#0e0e0e]">
+    <footer className="py-16 md:px-28 px-4 text-center md:text-left text-white text-lg bg-black border-t border-[#0e0e0e]">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
           <h4 className="text-5xl mb-4">Address</h4>
@@ -31,7 +31,7 @@ const Footer = () => {
           <p>
             <Link
               href="https://www.linkedin.com/company/mudenda-capital/"
-              className="flex items-center gap-2"
+              className="flex items-center justify-center md:justify-start gap-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ const Footer = () => {
             </Link>
             <Link
               href="mailto:info@mudendacapital.com"
-              className="flex items-center gap-2 pl-[0.1rem] text-white"
+              className="flex items-center justify-center md:justify-start gap-2 pl-[0.1rem] text-white"
             >
               <Mail size={28} strokeWidth={1.25} />
               <span>info@mudendacapital.com</span>

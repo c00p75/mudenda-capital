@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import buildingfLf from "@/public/assets/8-lf.png";
 import buildingRt from "@/public/assets/8-rt.png";
@@ -94,12 +93,16 @@ const Partners = () => {
         ref={leftHalfRef}
         className="absolute w-1/2 bg-black flex items-center justify-end z-[11] overflow-visible transform will-change-transform"
       >
-        <Image src={buildingfLf} alt="Mudenda Capital" />
+        <Image
+          src={buildingfLf}
+          alt="Mudenda Capital"
+          className="h-screen object-cover object-right"
+        />
         <div
           ref={paragraphRef}
-          className="absolute left-[80%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/85 p-8 backdrop-blur-sm w-[90%] transform will-change-transform"
+          className="absolute md:left-[80%] left-[100%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/85 p-8 backdrop-blur-sm md:w-[90%] w-[95vw] transform will-change-transform"
         >
-          <div className="p-8">
+          <div className="md:p-8 p-4">
             <p className="text-white leading-relaxed text-xl">
               Mudenda Capital Partners Pty assists clients with multiple
               interactive services into the huge untapped market with a recipe
@@ -119,7 +122,11 @@ const Partners = () => {
         ref={rightHalfRef}
         className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-10 transform will-change-transform"
       >
-        <Image src={buildingRt} alt="Mudenda Capital" />
+        <Image
+          src={buildingRt}
+          alt="Mudenda Capital"
+          className="h-screen object-cover object-left"
+        />
       </div>
 
       {/* Revealed content behind */}
@@ -135,13 +142,17 @@ const Partners = () => {
         <section className="py-20 px-6 flex justify-center relative path-trigger transition-opacity duration-700 bg-black">
           <div className="container mt-40 p-8">
             <div className="container mx-auto relative z-10">
-              <div className="p-8">
-                <h1 className="text-6xl text-yellow-500 xl:text-[6rem] mb-5 text-center leading-tight">
+              <div className="md:p-8 p-4">
+                <h1 className="text-6xl text-yellow-500 xl:text-[6rem] md:mb-5  text-center leading-tight">
                   EQUITY, INVESTMENTS <span className="text-white">AND</span>{" "}
                   PARTNERS
                 </h1>
                 <p className="text-white leading-relaxed text-xl mb-36">
-                  <Image src={clientLogos} alt="Mudenda Capital" />
+                  <Image
+                    src={clientLogos}
+                    alt="Mudenda Capital"
+                    className="scale-150 md:scale-100 mt-10 md:mt-0"
+                  />
                 </p>
               </div>
             </div>

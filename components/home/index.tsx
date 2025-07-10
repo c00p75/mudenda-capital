@@ -36,7 +36,7 @@ export default function MudendaCapital() {
 
       {/* WHO WE ARE */}
       <section className="bg-white relative z-[1] text-black w-screen py-14 px-6 path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700 overflow-hidden">
-        <div className="container mx-auto ml-20  p-8 backdrop-blur-sm">
+        <div className="container mx-auto md:ml-20 p-4 md:p-8 backdrop-blur-sm">
           <h2 className="text-8xl font-bold mb-12">WHO WE ARE</h2>
           <p className="text-xl leading-relaxed">
             Mudenda Capital is a Pan-African investment and trade finance firm
@@ -71,8 +71,8 @@ export default function MudendaCapital() {
           alt="Mission"
           className="absolute top-[-40%] left-[-15%] w-[50em] object-cover"
         />
-        <div className="container mt-20 bg-black text-white p-8 backdrop-blur-sm max-w-2xl">
-          <div className="p-8">
+        <div className="container mt-20 bg-black text-white p-4 md:p-8 backdrop-blur-sm max-w-2xl">
+          <div className="p-4 md:p-8">
             <h2 className="text-8xl font-bold mb-6 border-l-4 border-yellow-500 pl-4">
               MISSION
             </h2>
@@ -95,8 +95,8 @@ export default function MudendaCapital() {
           height={1000}
           className="absolute -bottom-28 right-[20%] w-[30em] h-[30em] object-contain"
         />
-        <div className="container bg-white md:ml-[10%] text-black p-8 backdrop-blur-sm max-w-2xl">
-          <div className="p-8">
+        <div className="container bg-white md:ml-[10%] text-black p-4 md:p-8 backdrop-blur-sm max-w-2xl">
+          <div className="p-4 md:p-8">
             <h2 className="text-8xl font-bold mb-6 border-l-4 border-yellow-500 pl-4">
               VISION
             </h2>
@@ -109,7 +109,7 @@ export default function MudendaCapital() {
       </section>
 
       {/* WHAT WE DO */}
-      <section className="bg-black z-[4] relative py-20 flex w-full path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
+      <section className="bg-black z-[4] relative py-20 flex flex-col md:flex-row w-full path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
         <div className="container md:w-1/2 bg-[black]/95 p-8 backdrop-blur-sm md:pl-28">
           <h2 className="text-8xl font-bold mb-8 text-yellow-500">
             What We Do
@@ -126,32 +126,32 @@ export default function MudendaCapital() {
             companies and communities alike.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 bg-[#252826] text-white">
-            <div className="p-1 px-3 my-3 border-r-2 border-white">
+            <div className="p-5 md:p-1 px-3 mx-5 md:mx-0 md:my-3 border-b-1 md:border-b-0 md:border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
-                Private <br /> Equity
+                Private <br className="hidden md:block" /> Equity
               </h3>
             </div>
-            <div className="p-1 px-3 my-3 border-r-2 border-white">
+            <div className="p-5 md:p-1 px-3 mx-5 md:mx-0 md:my-3 border-b-1 md:border-b-0 md:border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
-                Investment <br />
+                Investment <br className="hidden md:block" />
                 Banking
               </h3>
             </div>
-            <div className="p-1 px-3 my-3 border-r-2 border-white">
+            <div className="p-5 md:p-1 px-3 mx-5 md:mx-0 md:my-3 border-b-1 md:border-b-0 md:border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
-                Project <br />
+                Project <br className="hidden md:block" />
                 Financing
               </h3>
             </div>
-            <div className="p-1 px-3 my-3">
+            <div className="p-5 md:p-1 px-3 mx-5 md:mx-0 md:my-3">
               <h3 className="text-2xl text-center tracking-wider">
-                Purchase Order <br />
+                Purchase Order <br className="hidden md:block" />
                 Financing
               </h3>
             </div>
           </div>
         </div>
-        <div className="md:w-1/2 h-full flex items-end p-10">
+        <div className="hidden md:flex h-full items-end p-10">
           <Image
             src={building2}
             alt="Contract Mining"
