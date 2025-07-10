@@ -9,6 +9,7 @@ import Partners from "@/components/partners";
 import Subscribe from "@/components/subscribe";
 import GsapPathAnimation from "./GsapPathAnimation";
 import tree from "@/public/logos/tree.png";
+import Link from "next/link";
 
 export default function MudendaCapital() {
   return (
@@ -36,7 +37,7 @@ export default function MudendaCapital() {
 
       {/* WHO WE ARE */}
       <section className="bg-white relative z-[1] text-black w-screen py-14 px-6 path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700 overflow-hidden">
-        <div className="container mx-auto md:ml-20 p-4 md:p-8 backdrop-blur-sm">
+        <div className="container mx-auto md:pl-20 pr-0 p-4 md:p-8 backdrop-blur-sm">
           <h2 className="text-8xl font-bold mb-12">WHO WE ARE</h2>
           <p className="text-xl leading-relaxed">
             Mudenda Capital is a Pan-African investment and trade finance firm
@@ -47,11 +48,27 @@ export default function MudendaCapital() {
             <span className="font-bold">project financing</span> across Africa.
             <br />
             <br />
-            Our mission is to unlock value by providing tailored financial
-            solutions, market insights, and execution support to businesses and
-            institutions. With a deep understanding of regional markets, we
-            deliver expertise in trade facilitation, capital structuring, and
-            contract execution that drives real economic impact.
+            Our mission is to unlock value, with our strategic partners,{" "}
+            <Link
+              target="_blank"
+              href="https://lvc-global.com/"
+              className="font-bold underline"
+            >
+              LVC GLOBAL HOLDINGS{" "}
+            </Link>
+             by providing tailored financial solutions, market insights, and
+            execution support to businesses and institutions. With a deep
+            understanding of regional markets, we deliver expertise in trade
+            facilitation, capital structuring, and contract execution that
+            drives real economic impact. For more information on the joint
+            venture, view article{" "}
+            <Link
+              target="_blank"
+              href="https://panafricanvisions.com/2025/03/seneca-commodities-zambia-and-lvc-global-forge-jv-to-optimize-critical-mineral-trading-in-emerging-frontier-markets/"
+              className="font-bold underline"
+            >
+              here
+            </Link>
           </p>
         </div>
       </section>

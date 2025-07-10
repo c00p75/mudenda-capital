@@ -2,11 +2,6 @@
 
 import Image from "next/image";
 import tree from "@/public/logos/tree.png";
-import dynamic from "next/dynamic";
-
-const SpinningGlobe = dynamic(() => import("@/components/magicui/globeDark"), {
-  ssr: false,
-});
 
 export default function ContactPage() {
   return (
@@ -37,7 +32,7 @@ export default function ContactPage() {
         <Image
           src={tree}
           alt="Mission"
-          className="absolute bottom-[-58%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full object-cover overflow-visible"
+          className="absolute bottom-[-58%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full scale-[115%] object-cover overflow-visible"
         />
         <div className="container mx-auto">
           <div className="flex justify-center items-center">
