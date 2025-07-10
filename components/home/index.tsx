@@ -4,7 +4,7 @@ import HomeHeroSection from "@/components/home/hero";
 import Image from "next/image";
 import mission from "@/public/assets/13.png";
 import vision from "@/public/assets/12.png";
-import contractMining from "@/public/assets/14.png";
+import building2 from "@/public/assets/21.png";
 import Partners from "@/components/partners";
 import Subscribe from "@/components/subscribe";
 import GsapPathAnimation from "./GsapPathAnimation";
@@ -153,7 +153,7 @@ export default function MudendaCapital() {
         </div>
         <div className="md:w-1/2 h-full flex items-end p-10">
           <Image
-            src={contractMining}
+            src={building2}
             alt="Contract Mining"
             width={1000}
             height={1000}

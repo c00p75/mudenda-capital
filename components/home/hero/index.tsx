@@ -8,11 +8,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import logoLf from "@/public/logos/logo-lf.png";
 import logoRt from "@/public/logos/logo-rt.png";
-import dynamic from "next/dynamic";
-
-const SpinningGlobe = dynamic(() => import("@/components/magicui/globe"), {
-  ssr: false,
-});
+import building from "@/public/assets/8.png";
 
 const HomeHeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,9 +35,10 @@ const HomeHeroSection = () => {
         trigger: container,
         start: "top 0%",
         end: "bottom center",
-        scrub: 1,
+        scrub: 0.3,
         pin: true,
         anticipatePin: 1,
+        lazy: false,
         onUpdate: (self) => {
           if (globeInstanceRef.current) {
             const speed = 0.6 + self.progress * 2;
@@ -61,17 +58,23 @@ const HomeHeroSection = () => {
       },
     });
 
-    tl.to(leftHalf, {
-      x: "-50vw",
-      duration: 2,
-      ease: "power2.inOut",
-    })
+    tl.to(
+      leftHalf,
+      {
+        x: "-50vw",
+        duration: 2,
+        ease: "power2.inOut",
+        force3D: true,
+      },
+      0
+    )
       .to(
         rightHalf,
         {
           x: "50vw",
           duration: 2,
           ease: "power2.inOut",
+          force3D: true,
         },
         0
       )
@@ -82,6 +85,7 @@ const HomeHeroSection = () => {
           scale: 1,
           duration: 3,
           ease: "power2.out",
+          force3D: true,
         },
         0.3
       )
@@ -92,6 +96,7 @@ const HomeHeroSection = () => {
           x: -200,
           duration: 3,
           ease: "power2.out",
+          force3D: true,
         },
         0.4
       );
@@ -104,38 +109,28 @@ const HomeHeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative h-screen overflow-visible bg-black text-white z-[2]"
+      className="relative h-screen overflow-visible bg-black text-white"
     >
       {/* Left half */}
       <div
         ref={leftHalfRef}
-        className="absolute inset-0 w-1/2 flex items-center justify-end z-20"
+        className="absolute inset-0 w-1/2 flex items-center justify-end z-20 transform will-change-transform"
       >
-        {/* <Image
-          src={logoLfBlur}
-          alt="Mudenda Capital"
-          className="absolute left-0 w-full h-full opacity-10 pr-[0.11px]"
-        /> */}
         <Image src={logoLf} alt="Mudenda Capital" className="h-screen" />
       </div>
 
       {/* Right half */}
       <div
         ref={rightHalfRef}
-        className="absolute inset-0 left-1/2 w-1/2 flex items-center justify-start z-10"
+        className="absolute inset-0 left-1/2 w-1/2 flex items-center justify-start z-10 transform will-change-transform"
       >
-        {/* <Image
-          src={logoRtBlur}
-          alt="Mudenda Capital"
-          className="absolute right-0 w-full h-full opacity-10"
-        /> */}
         <Image src={logoRt} alt="Mudenda Capital" className="h-screen" />
       </div>
 
       {/* Revealed content behind */}
       <div
         ref={revealContentRef}
-        className="absolute inset-0 flex items-center justify-center opacity-0 scale-90"
+        className="absolute inset-0 flex items-center justify-center opacity-0 scale-90 transform will-change-transform"
         style={{
           backgroundImage: `url('/placeholder.svg?height=800&width=1200')`,
           backgroundSize: "cover",
@@ -145,15 +140,27 @@ const HomeHeroSection = () => {
         <div className="text-center rounded-lg backdrop-blur-sm">
           <div
             ref={globeRef}
-            className="absolute mt-20 inset-0 flex items-center justify-center w-full h-full transform scale-100 transition-transform"
+            className="absolute left-0 top-0 flex items-center justify-center w-screen h-screen transform transition-transform will-change-transform"
           >
-            <div className="absolute lg:-top-32 lg:left-64 h-full w-full bg-grey-500">
-              <SpinningGlobe globeRef={globeInstanceRef} />
+            <div className="absolute left-0 top-0 h-screen w-screen bg-grey-500">
+              <Image
+                src={building}
+                alt="Mudenda Capital"
+                className="h-screen w-screen"
+              />
+              <div className="absolute top-0 left-0 bg-gradient-to-t from-black via-80% via-black/50 to-transparent opacity-90 h-screen w-screen" />
             </div>
           </div>
-          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-[2]">
+          <div className="container flex justify-center items-center relative z-[2]">
             <div className="space-y-8">
-              <h1 className="text-6xl xl:text-[8rem] font-bold leading-tight uppercase">
+              <div className="h-20 w-full" />
+              <h1
+                className="text-6xl xl:text-[7rem] font-bold leading-tight uppercase"
+                style={{
+                  textShadow:
+                    "0 0 5px rgba(0,0,0,0.4), 0 0 10px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.2)",
+                }}
+              >
                 YOUR <span className="text-yellow-500">Investment </span>
                 <br />
                 <span className="text-yellow-500">Family</span> Office

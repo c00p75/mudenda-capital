@@ -97,7 +97,7 @@ const Partners = () => {
         <Image src={buildingfLf} alt="Mudenda Capital" />
         <div
           ref={paragraphRef}
-          className="absolute left-[80%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/95 p-8 backdrop-blur-sm w-[90%] transform will-change-transform"
+          className="absolute left-[80%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/85 p-8 backdrop-blur-sm w-[90%] transform will-change-transform"
         >
           <div className="p-8">
             <p className="text-white leading-relaxed text-xl">
