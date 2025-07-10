@@ -15,7 +15,7 @@ export default function MudendaCapital() {
   return (
     <div className="overflow-x-hidden relative">
       {/* Mount GSAP animation effect */}
-      <GsapPathAnimation />
+      {/* <GsapPathAnimation /> */}
 
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none opacity-0"
@@ -36,7 +36,7 @@ export default function MudendaCapital() {
       <HomeHeroSection />
 
       {/* WHO WE ARE */}
-      <section className="bg-white relative z-[1] text-black w-screen py-14 px-6 path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700 overflow-hidden">
+      <section className="bg-white relative z-[1] text-black w-screen py-14 px-6 path-trigger  will-change-[opacity] transition-opacity duration-700 overflow-hidden">
         <div className="container mx-auto md:pl-20 pr-0 p-4 md:p-8 backdrop-blur-sm">
           <h2 className="text-8xl font-bold mb-12">WHO WE ARE</h2>
           <p className="text-xl leading-relaxed">
@@ -74,7 +74,7 @@ export default function MudendaCapital() {
       </section>
 
       {/* MISSION */}
-      <section className="bg-white z-[2] text-black py-20 px-6 flex justify-end relative path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
+      <section className="bg-white z-[2] text-black py-20 px-6 flex justify-end relative path-trigger  will-change-[opacity] transition-opacity duration-700">
         <Image
           src={mission}
           alt="Mission"
@@ -104,7 +104,7 @@ export default function MudendaCapital() {
       </section>
 
       {/* VISION */}
-      <section className="bg-black z-[5] py-20 px-6 flex justify-start relative path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
+      <section className="bg-black z-[5] py-20 px-6 flex justify-start relative path-trigger  will-change-[opacity] transition-opacity duration-700">
         <Image
           src={vision}
           alt="Vision"
@@ -126,7 +126,7 @@ export default function MudendaCapital() {
       </section>
 
       {/* WHAT WE DO */}
-      <section className="bg-black z-[4] relative py-20 flex flex-col md:flex-row w-full path-trigger opacity-0 will-change-[opacity] transition-opacity duration-700">
+      <section className="bg-black z-[4] relative py-20 flex flex-col md:flex-row w-full path-trigger  will-change-[opacity] transition-opacity duration-700">
         <div className="container md:w-1/2 bg-[black]/95 p-8 backdrop-blur-sm md:pl-28">
           <h2 className="text-8xl font-bold mb-8 text-yellow-500">
             What We Do

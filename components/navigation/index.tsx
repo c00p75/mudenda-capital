@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Search, Menu, X } from "lucide-react";
 import Image from "next/image";
 import logo from "@/public/logos/logo-1.png";
 import Link from "next/link";
@@ -8,19 +8,40 @@ import { usePathname } from "next/navigation";
 
 export default function NavHeader() {
   const pathname = usePathname();
-  const [isAboutHovered, setIsAboutHovered] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed text-white top-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-[#0e0e0e]">
+    <header
+      className={`fixed text-white top-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-[#0e0e0e]
+    transform transition-transform duration-500 ease-in-out
+    ${showNavbar ? "md:translate-y-0" : "md:-translate-y-full"}
+  `}
+    >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2">
           <Image
             src={logo}
             alt="Mudenda Capital"
             className="w-32 object-contain"
           />
-        </div>
+        </Link>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link
             href="/"
@@ -30,7 +51,6 @@ export default function NavHeader() {
           >
             HOME
           </Link>
-
           <Link
             href="/about/our-services"
             className={`transition-colors ${
@@ -41,7 +61,6 @@ export default function NavHeader() {
           >
             SERVICES
           </Link>
-
           <Link
             href="/about/our-team"
             className={`transition-colors ${
@@ -52,63 +71,6 @@ export default function NavHeader() {
           >
             TEAM
           </Link>
-
-          {/* About Us Dropdown */}
-          {/* <div
-            className="relative"
-            onMouseEnter={() => setIsAboutHovered(true)}
-            onMouseLeave={() => setIsAboutHovered(false)}
-          >
-            <div
-              className={`transition-colors flex items-center space-x-1 ${
-                pathname === "/about/our-services" ||
-                pathname === "/about/our-team"
-                  ? "text-yellow-500"
-                  : "hover:text-white"
-              }`}
-            >
-              <span>ABOUT US</span>
-              <ChevronDown
-                className={`w-7 h-7 transition-transform duration-200 ${
-                  isAboutHovered ? "rotate-180" : ""
-                }`}
-              />
-            </div>
-            
-            {isAboutHovered && (
-              <div className="absolute top-full left-0 w-56 bg-white shadow-md backdrop-blur-sm py-2 z-50">
-                <Link
-                  href="about/our-services"
-                  className={`block px-4 py-2 font-semibold transition-colors ${
-                    pathname === "about/our-services"
-                      ? "text-yellow-500 bg-gray-800/50"
-                      : "text-black hover:text-yellow-500"
-                  }`}
-                >
-                  Our Services
-                </Link>
-                <Link
-                  href="/about/our-team"
-                  className={`block px-4 py-2 font-semibold transition-colors ${
-                    pathname === "/team"
-                      ? "text-yellow-500 bg-gray-800/50"
-                      : "text-black hover:text-yellow-500"
-                  }`}
-                >
-                  Our Team
-                </Link>
-              </div>
-            )}
-          </div> */}
-
-          {/* <Link
-            href="/blog"
-            className={`transition-colors ${
-              pathname === "/blog" ? "text-yellow-500" : "hover:text-yellow-500"
-            }`}
-          >
-            BLOG
-          </Link> */}
           <Link
             href="/contact"
             className={`transition-colors ${
@@ -121,7 +83,18 @@ export default function NavHeader() {
           </Link>
         </nav>
 
-        <div className="flex items-center space-x-4">
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-white focus:outline-none"
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Search (Always Visible) */}
+        <div className="hidden md:flex items-center space-x-4">
           <div className="relative">
             <input
               type="text"
@@ -132,6 +105,56 @@ export default function NavHeader() {
           </div>
         </div>
       </div>
+
+      {/* Mobile Nav Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden px-6 py-10 bg-black/90 backdrop-blur-sm">
+          <nav className="flex flex-col space-y-4 text-white">
+            <Link
+              href="/"
+              className={`transition-colors ${
+                pathname === "/" ? "text-yellow-500" : "hover:text-yellow-500"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              HOME
+            </Link>
+            <Link
+              href="/about/our-services"
+              className={`transition-colors ${
+                pathname === "/about/our-services"
+                  ? "text-yellow-500"
+                  : "hover:text-yellow-500"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              SERVICES
+            </Link>
+            <Link
+              href="/about/our-team"
+              className={`transition-colors ${
+                pathname === "/about/our-team"
+                  ? "text-yellow-500"
+                  : "hover:text-yellow-500"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              TEAM
+            </Link>
+            <Link
+              href="/contact"
+              className={`transition-colors ${
+                pathname === "/contact"
+                  ? "text-yellow-500"
+                  : "hover:text-yellow-500"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              CONTACT
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
