@@ -91,7 +91,7 @@ const Partners = () => {
       {/* Left half */}
       <div
         ref={leftHalfRef}
-        className="absolute w-1/2 bg-black flex items-center justify-end z-[11] overflow-visible transform will-change-transform"
+        className="absolute w-1/2 bg-black flex items-center justify-end z-10"
       >
         <Image
           src={buildingfLf}
@@ -120,7 +120,7 @@ const Partners = () => {
       {/* Right half */}
       <div
         ref={rightHalfRef}
-        className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-10 transform will-change-transform"
+        className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-20"
       >
         <Image
           src={buildingRt}

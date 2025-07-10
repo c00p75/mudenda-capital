@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -49,50 +49,52 @@ const Projects = () => {
   const revealContentRef = useRef<HTMLDivElement>(null);
   const paragraphRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom center",
-        scrub: 0.4,
-        pin: true,
-        anticipatePin: 1,
-      },
-    });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom center",
+          scrub: 0.4,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
 
-    tl.to(leftHalfRef.current, {
-      x: "-50vw",
-      ease: "power2.inOut",
-    })
-      .to(
-        rightHalfRef.current,
-        {
-          x: "50vw",
-          ease: "power2.inOut",
-        },
-        0
-      )
-      .to(
-        paragraphRef.current,
-        {
-          x: "50%",
-          ease: "power2.inOut",
-        },
-        0.2
-      )
-      .to(
-        revealContentRef.current,
-        {
-          scale: 1,
-          ease: "power2.out",
-        },
-        0.3
-      );
+      tl.to(leftHalfRef.current, {
+        x: "-50vw",
+        ease: "power2.inOut",
+      })
+        .to(
+          rightHalfRef.current,
+          {
+            x: "50vw",
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          paragraphRef.current,
+          {
+            x: "50%",
+            ease: "power2.inOut",
+          },
+          0.2
+        )
+        .to(
+          revealContentRef.current,
+          {
+            scale: 1,
+            ease: "power2.out",
+          },
+          0.3
+        );
+    }, containerRef);
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -105,15 +107,23 @@ const Projects = () => {
         ref={leftHalfRef}
         className="absolute w-1/2 bg-black flex items-center justify-end z-10"
       >
-        <Image src={buildingfLf} alt="Left Building" />
+        <Image
+          src={buildingfLf}
+          alt="Mudenda Capital"
+          className="h-screen object-cover object-right"
+        />
       </div>
 
       {/* Right Half */}
       <div
         ref={rightHalfRef}
-        className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-20"
+        className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-10"
       >
-        <Image src={buildingRt} alt="Right Building" />
+        <Image
+          src={buildingRt}
+          alt="Mudenda Capital"
+          className="h-screen object-cover object-left"
+        />
         <div
           ref={paragraphRef}
           className="absolute left-[-20%] top-1/2 -translate-x-[30%] -translate-y-1/2 bg-[#252826]/95 p-8 backdrop-blur-sm text-center w-fit min-w-2xl"
@@ -173,7 +183,7 @@ const Projects = () => {
                 </div>
 
                 {/* Fade-in Description Overlay */}
-                <div className="absolute inset-0 bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex items-center justify-center px-6 text-center z-20">
+                <div className="absolute inset-0 bg-black/90 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex items-center justify-center px-6 text-center z-20">
                   <p className="text-2xl">{project.description}</p>
                 </div>
               </div>
