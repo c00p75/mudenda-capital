@@ -95,7 +95,16 @@ export default function AboutPage() {
                     <h3 className="text-2xl mb-2 tracking-wider">
                       {member.name}
                     </h3>
-                    <p className="text-white text-xl">{member.title}</p>
+                    <p className="text-white text-xl flex justify-between gap-2">
+                      {member.title}{" "}
+                      <Image
+                        src={"/arrow-right.png"}
+                        alt="arrow-right"
+                        width={20}
+                        height={20}
+                        className="w-6 h-6 mt-2"
+                      />
+                    </p>
                   </div>
                 </div>
               </div>
