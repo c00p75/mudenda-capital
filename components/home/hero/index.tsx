@@ -155,10 +155,10 @@ const HomeHeroSection = () => {
             <div className="space-y-8">
               <div className="h-20 w-full" />
               <h1
-                className="text-6xl xl:text-[7rem] font-bold leading-tight uppercase"
+                className="text-6xl xl:text-[8rem] font-bold leading-tight uppercase"
                 style={{
                   textShadow:
-                    "0 0 5px rgba(0,0,0,0.4), 0 0 10px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.2)",
+                    "0 0 5px rgba(0,0,0,0.2), 0 0 10px rgba(0,0,0,0.1), 0 0 20px rgba(0,0,0,0.0.5)",
                 }}
               >
                 YOUR <span className="text-yellow-500">Investment </span>
