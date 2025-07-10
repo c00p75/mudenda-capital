@@ -125,7 +125,7 @@ export default function MudendaCapital() {
             a strong regional presence, we turn opportunity into impact for
             companies and communities alike.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-4 bg-[#252826] text-white">
+          <div className="grid grid-cols-1 md:grid-cols-3 bg-[#252826] text-white">
             <div className="p-5 md:p-1 px-3 mx-5 md:mx-0 md:my-3 border-b-1 md:border-b-0 md:border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
                 Private <br className="hidden md:block" /> Equity
@@ -137,15 +137,9 @@ export default function MudendaCapital() {
                 Banking
               </h3>
             </div>
-            <div className="p-5 md:p-1 px-3 mx-5 md:mx-0 md:my-3 border-b-1 md:border-b-0 md:border-r-2 border-white">
-              <h3 className="text-2xl text-center tracking-wider">
-                Project <br className="hidden md:block" />
-                Financing
-              </h3>
-            </div>
             <div className="p-5 md:p-1 px-3 mx-5 md:mx-0 md:my-3">
               <h3 className="text-2xl text-center tracking-wider">
-                Purchase Order <br className="hidden md:block" />
+                Project <br className="hidden md:block" />
                 Financing
               </h3>
             </div>
