@@ -100,10 +100,10 @@ const Partners = () => {
         />
         <div
           ref={paragraphRef}
-          className="absolute md:left-[80%] left-[100%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/85 p-8 backdrop-blur-sm md:w-[90%] w-[95vw] transform will-change-transform"
+          className="absolute md:left-[80%] left-[100%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/85 p-8 md:w-[90%] w-[95vw] transform will-change-transform"
         >
           <div className="md:p-8 p-4">
-            <p className="text-white leading-relaxed text-xl">
+            <p className="text-white leading-relaxed text-2xl">
               Mudenda Capital Partners Pty assists clients with multiple
               interactive services into the huge untapped market with a recipe
               to success. Our methods have been tried and tested by major expert
@@ -132,7 +132,7 @@ const Partners = () => {
       {/* Revealed content behind */}
       <div
         ref={revealContentRef}
-        className="absolute inset-0 flex items-center justify-center opacity-0 scale-90 bg-gradient-to-b from-[#0e0e0e] to-transparent transform will-change-transform"
+        className="absolute inset-0 flex items-center justify-center opacity-0 scale-90 bg-black transform will-change-transform"
         style={{
           backgroundImage: `url('/placeholder.svg?height=800&width=1200')`,
           backgroundSize: "cover",
