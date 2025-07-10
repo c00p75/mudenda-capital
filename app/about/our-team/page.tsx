@@ -65,9 +65,9 @@ export default function AboutPage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6">
-          <div className="ml-28 max-w-2xl">
+          <div className="md:ml-28 max-w-2xl">
             <p className="text-white font-bold text-3xl mb-4">About us.</p>
-            <h1 className="text-6xl lg:text-8xl tracking-wide font-semibold text-yellow-500 leading-tight">
+            <h1 className="text-8xl tracking-wide font-semibold text-yellow-500 leading-tight">
               Our Executive Team
             </h1>
           </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full scale-150 object-contain"
         />
         <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 p-32 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:p-32 gap-8">
             {teamMembers.map((member, i) => (
               <div
                 key={i}
@@ -120,12 +120,12 @@ export default function AboutPage() {
         {/* Modal */}
         {selectedMember && (
           <div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6"
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-2 md:p-6"
             onClick={() => setSelectedMember(null)}
           >
             <div
               ref={modalRef}
-              className="bg-white text-black rounded-lg shadow-2xl w-[80%] h-[80%] overflow-hidden relative"
+              className="bg-white text-black rounded-lg shadow-2xl w-[100%] md:w-[80%] h-[100%] md:h-[80%] overflow-hidden relative"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col md:flex-row h-full">
@@ -161,7 +161,7 @@ export default function AboutPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-32 pl-28 text-white bg-black relative">
+      <section className="py-32 pl-5 pr-5 md:pr-5 md:pl-28 text-white bg-black relative">
         <Image
           src={subscribeBg}
           alt=""
@@ -178,13 +178,13 @@ export default function AboutPage() {
               Subscribe to our newsletter or email us at info@mudendacapital.com
             </p>
             <div className="relative w-full h-full mt-10">
-              <div className="relative flex flex-col gap-10 w-full max-w-[30rem] text-xl">
+              <div className="relative flex flex-col gap-10 w-full md:max-w-[30rem] text-xl justify-center md:justify-start">
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="px-4 py-6 h-14 rounded-full placeholder:text-white bg-[#939393] w-full border-gray-800 border-4 focus:outline-none focus:border-yellow-500"
+                  className="px-4 py-8 md:py-6 h-14 rounded-full placeholder:text-white bg-[#939393] w-full border-gray-800 border-4 focus:outline-none focus:border-yellow-500"
                 />
-                <button className="flex items-center justify-center cursor-pointer bg-yellow-500 text-xl text-white font-semibold px-20 py-6 h-14 rounded-lg w-fit">
+                <button className="flex items-center justify-center cursor-pointer bg-yellow-500 text-xl text-white font-semibold px-10 md:px-20 py-4 md:py-6 h-14 rounded-lg w-fit">
                   Subscribe
                 </button>
               </div>

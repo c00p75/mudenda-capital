@@ -4,7 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useState, useEffect, useRef, RefObject } from "react";
 import Subscribe from "@/components/subscribe";
-import Projects from "@/components/projects";
+import Projects from "@/components/projects/index";
 
 const privateEquityItems = [
   {
@@ -125,9 +125,11 @@ export default function ServicesPage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6">
-          <div className="ml-28 max-w-2xl">
-            <p className="text-white font-bold text-3xl mb-4">About us.</p>
-            <h1 className="text-6xl lg:text-8xl tracking-wide font-semibold text-yellow-500 leading-tight">
+          <div className="md:ml-28 max-w-2xl">
+            <p className="text-white font-bold text-4xl md:text-3xl mb-4">
+              About us.
+            </p>
+            <h1 className="text-8xl tracking-wide font-semibold text-yellow-500 leading-tight">
               Our Services
             </h1>
           </div>
@@ -137,9 +139,11 @@ export default function ServicesPage() {
       {/* Contract Mining Section */}
       <section className="py-32 px-6 bg-white text-black">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pl-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center md:pl-28">
             <div>
-              <h2 className="text-8xl mb-6 uppercase">PRIVATE EQUITY</h2>
+              <h2 className="text-8xl font-bold mb-6 uppercase">
+                PRIVATE EQUITY
+              </h2>
               <p className="text-2xl mb-8">
                 Mudenda Capital provides strategic private equity investments to
                 fuel the growth of high-potential companies across emerging
@@ -165,7 +169,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative mt-[45%] md:mt-0">
               <div ref={imageRef1}>
                 <Image
                   src={privateEquityItems[activeIndex1].image}
@@ -188,10 +192,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Investment Banking Section */}
-      <section className="py-20 px-6 bg-black text-right pr-28">
+      <section className="py-20 px-6 bg-black md:text-right md:pr-28">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
+            <div className="relative order-1 md:order-2 mt-[40%] md:mt-0">
               <div ref={imageRef2}>
                 <Image
                   src={investmentBankingItems[activeIndex2].image}
@@ -202,7 +206,7 @@ export default function ServicesPage() {
                 />
               </div>
               <div
-                className="absolute bottom-4 right-4 bg-[#252826]/90 text-white p-10 max-w-md"
+                className="absolute bottom-4 right-4 bg-[#252826]/90 text-white p-10 md:max-w-md"
                 ref={textRef2}
               >
                 <p className="text-xl">
@@ -212,7 +216,7 @@ export default function ServicesPage() {
             </div>
 
             <div>
-              <h2 className="text-8xl font-bold mb-6 uppercase">
+              <h2 className="text-7xl md:text-8xl font-bold mb-6 uppercase">
                 Investment Banking
               </h2>
               <p className="text-2xl mb-8">
@@ -222,9 +226,9 @@ export default function ServicesPage() {
                 value, sound advice, and strong execution across transactions.
               </p>
 
-              <div className="w-[80%] h-2 bg-yellow-500 mb-8 flex justify-self-end" />
+              <div className="w-[80%] h-2 bg-yellow-500 mb-8 flex justify-self-center md:justify-self-end" />
 
-              <div className="space-y-4 text-4xl tracking-wider pl-40">
+              <div className="space-y-4 text-4xl tracking-wider md:pl-40">
                 {investmentBankingItems.map((item, index) => (
                   <div
                     key={index}
@@ -245,7 +249,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Project Financing Section */}
-      <section className="py-20 px-6 bg-white text-black pl-28">
+      <section className="py-20 px-6 bg-white text-black md:pl-28">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

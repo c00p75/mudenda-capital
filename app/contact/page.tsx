@@ -33,11 +33,11 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 px-6 bg-white text-white overflow-hidden">
+      <section className="py-20 px-6 bg-white text-white overflow-hidden relative w-full">
         <Image
           src={tree}
           alt="Mission"
-          className="absolute bottom-[-140%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full object-cover scale-[150%]"
+          className="absolute bottom-[-58%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full object-cover overflow-visible"
         />
         <div className="container mx-auto">
           <div className="flex justify-center items-center">

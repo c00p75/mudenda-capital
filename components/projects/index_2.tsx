@@ -10,7 +10,7 @@ import reloadLogistics from "@/public/assets/12.png";
 
 const Projects = () => {
   return (
-    <div className="bg-white relative h-screen overflow-visible">
+    <div className="bg-white relative overflow-visible min-h-[120vh] md:min-h-screen">
       {/* Revealed content behind */}
       <div
         className="absolute inset-0 flex items-center justify-center scale-90 bg-white"
