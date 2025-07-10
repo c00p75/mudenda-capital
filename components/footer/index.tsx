@@ -11,7 +11,7 @@ const Footer = () => {
           <p>
             Mudenda Capital Partners Pty Ltd
             <br />
-            AS05, Grosvenor Square, Park Lane, Centure City,
+            AS05, Grosvenor Square, Park Lane, Century City,
             <br />
             Cape Town, South Africa.
           </p>
