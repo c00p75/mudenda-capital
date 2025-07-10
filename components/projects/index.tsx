@@ -3,15 +3,12 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import buildingfLf from "@/public/assets/8-lf.png";
 import buildingRt from "@/public/assets/8-rt.png";
-import clientLogos from "@/public/client logos/client logos.jpg";
 import accessWorld from "@/public/assets/10.png";
 import sscMining from "@/public/assets/11.png";
 import reloadLogistics from "@/public/assets/12.png";
-import { ChevronRight, CircleChevronRight, MoveRight } from "lucide-react";
 
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -103,11 +100,9 @@ const Projects = () => {
           ref={paragraphRef}
           className="absolute left-[-20%] top-1/2 -translate-x-[30%] -translate-y-1/2 bg-[#252826]/95 p-8 backdrop-blur-sm min-w-2xl w-fit text-center"
         >
-          <div className="p-8">
-            <h2 className="text-white leading-relaxed text-8xl">
-              OUR PROJECTS
-            </h2>
-          </div>
+          <h2 className="text-white leading-relaxed text-8xl text-center w-full">
+            OUR PROJECTS
+          </h2>
         </div>
       </div>
 

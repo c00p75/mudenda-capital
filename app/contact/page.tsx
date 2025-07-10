@@ -117,10 +117,9 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500"
                   >
                     <option value="">Select a service</option>
-                    <option value="contract-mining">Contract Mining</option>
-                    <option value="currency-trading">Currency Trading</option>
-                    <option value="mining-supplies">Mining Supplies</option>
-                    <option value="private-equity">Private Equity</option>
+                    <option value="contract-mining">Private Equity</option>
+                    <option value="currency-trading">Investment Banking</option>
+                    <option value="mining-supplies">Project Financing</option>
                   </select>
                 </div>
                 <div>

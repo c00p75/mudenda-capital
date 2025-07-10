@@ -116,7 +116,7 @@ const HomeHeroSection = () => {
           alt="Mudenda Capital"
           className="absolute left-0 w-full h-full opacity-10 pr-[0.11px]"
         /> */}
-        <Image src={logoLf} alt="Mudenda Capital" />
+        <Image src={logoLf} alt="Mudenda Capital" className="h-screen" />
       </div>
 
       {/* Right half */}
@@ -129,7 +129,7 @@ const HomeHeroSection = () => {
           alt="Mudenda Capital"
           className="absolute right-0 w-full h-full opacity-10"
         /> */}
-        <Image src={logoRt} alt="Mudenda Capital" />
+        <Image src={logoRt} alt="Mudenda Capital" className="h-screen" />
       </div>
 
       {/* Revealed content behind */}
@@ -153,10 +153,10 @@ const HomeHeroSection = () => {
           </div>
           <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-[2]">
             <div className="space-y-8">
-              <h1 className="text-6xl xl:text-[8rem] font-bold leading-tight">
-                YOUR <span className="text-yellow-500">AFRICAN</span>
+              <h1 className="text-6xl xl:text-[8rem] font-bold leading-tight uppercase">
+                YOUR <span className="text-yellow-500">Investment </span>
                 <br />
-                <span className="text-yellow-500">TRADE</span> PARTNER
+                <span className="text-yellow-500">Family</span> Office
               </h1>
               <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-none">
                 WORK WITH US

@@ -126,24 +126,24 @@ export default function MudendaCapital() {
             companies and communities alike.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 bg-[#252826] text-white">
-            <div className="p-1 m-3 border-r-2 border-white">
+            <div className="p-1 px-3 my-3 border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
                 Private <br /> Equity
               </h3>
             </div>
-            <div className="p-1 m-3 border-r-2 border-white">
+            <div className="p-1 px-3 my-3 border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
                 Investment <br />
                 Banking
               </h3>
             </div>
-            <div className="p-1 m-3 border-r-2 border-white">
+            <div className="p-1 px-3 my-3 border-r-2 border-white">
               <h3 className="text-2xl text-center tracking-wider">
                 Project <br />
                 Financing
               </h3>
             </div>
-            <div className="p-1 m-3">
+            <div className="p-1 px-3 my-3">
               <h3 className="text-2xl text-center tracking-wider">
                 Purchase Order <br />
                 Financing

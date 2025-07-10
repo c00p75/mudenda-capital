@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import buildingfLf from "@/public/assets/8-lf.png";
@@ -14,42 +16,137 @@ const Partners = () => {
   const revealContentRef = useRef<HTMLDivElement>(null);
   const paragraphRef = useRef<HTMLDivElement>(null);
 
-  return (
-    <div className="relative overflow-visible bg-black flex flex-col lg:flex-row">
-      {/* <div className="h-screen w-screen">
-        <p className="text-white leading-relaxed text-base md:text-xl">
-          Mudenda Capital Partners Pty assists clients with multiple interactive
-          services into the huge untapped market with a recipe to success. Our
-          methods have been tried and tested by major expert analysts and
-          traders approving our successful formula.
-          <br />
-          <br />
-          With professional background credibility, MUDENDA CAPITAL is your
-          trade partner of choice on the African continent.
-        </p>
-      </div> */}
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
+    const container = containerRef.current;
+    const leftHalf = leftHalfRef.current;
+    const rightHalf = rightHalfRef.current;
+    const revealContent = revealContentRef.current;
+    const paragraph = paragraphRef.current;
+
+    if (!container || !leftHalf || !rightHalf || !revealContent || !paragraph)
+      return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top 0%",
+        end: "bottom center",
+        scrub: 0.3,
+        pin: true,
+        anticipatePin: 1,
+        lazy: false,
+      },
+    });
+
+    tl.to(
+      leftHalf,
+      {
+        x: "-50vw",
+        duration: 2,
+        ease: "power2.inOut",
+        force3D: true,
+      },
+      0
+    )
+      .to(
+        rightHalf,
+        {
+          x: "50vw",
+          duration: 2,
+          ease: "power2.inOut",
+          force3D: true,
+        },
+        0
+      )
+      .to(
+        paragraph,
+        {
+          x: "-80%",
+          duration: 2,
+          ease: "power2.inOut",
+          force3D: true,
+        },
+        0.2
+      )
+      .to(
+        revealContent,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 3,
+          ease: "power2.out",
+          force3D: true,
+        },
+        0.4
+      );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative h-screen overflow-visible">
+      {/* Left half */}
       <div
-        className="bg-gradient-to-b from-[#0e0e0e] to-transparent py-20 px-4 md:px-6 bottom-0 left-0 z-[1] w-full"
+        ref={leftHalfRef}
+        className="absolute w-1/2 bg-black flex items-center justify-end z-[11] overflow-visible transform will-change-transform"
+      >
+        <Image src={buildingfLf} alt="Mudenda Capital" />
+        <div
+          ref={paragraphRef}
+          className="absolute left-[80%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#252826]/95 p-8 backdrop-blur-sm w-[90%] transform will-change-transform"
+        >
+          <div className="p-8">
+            <p className="text-white leading-relaxed text-xl">
+              Mudenda Capital Partners Pty assists clients with multiple
+              interactive services into the huge untapped market with a recipe
+              to success. Our methods have been tried and tested by major expert
+              analysts and traders approving our successful formula.
+              <br />
+              <br />
+              With professional background credibility, MUDENDA CAPITAL is your
+              trade partner of choice on the African continent.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right half */}
+      <div
+        ref={rightHalfRef}
+        className="absolute left-1/2 w-1/2 bg-black flex items-center justify-start z-10 transform will-change-transform"
+      >
+        <Image src={buildingRt} alt="Mudenda Capital" />
+      </div>
+
+      {/* Revealed content behind */}
+      <div
+        ref={revealContentRef}
+        className="absolute inset-0 flex items-center justify-center opacity-0 scale-90 bg-gradient-to-b from-[#0e0e0e] to-transparent transform will-change-transform"
         style={{
           backgroundImage: `url('/placeholder.svg?height=800&width=1200')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="container mx-auto">
-          <div className="text-center flex flex-col justify-center items-center">
-            <h1 className="text-4xl md:text-6xl xl:text-[6rem] text-yellow-500 mb-6 leading-tight">
-              EQUITY, INVESTMENTS <span className="text-white">AND</span>{" "}
-              PARTNERS
-            </h1>
-            <Image
-              src={clientLogos}
-              alt="Mudenda Capital Client Logos"
-              className="max-w-full h-auto object-fit-contain px-10 pt-10"
-            />
+        <section className="py-20 px-6 flex justify-center relative path-trigger transition-opacity duration-700 bg-black">
+          <div className="container mt-40 p-8">
+            <div className="container mx-auto relative z-10">
+              <div className="p-8">
+                <h1 className="text-6xl text-yellow-500 xl:text-[6rem] mb-5 text-center leading-tight">
+                  EQUITY, INVESTMENTS <span className="text-white">AND</span>{" "}
+                  PARTNERS
+                </h1>
+                <p className="text-white leading-relaxed text-xl mb-36">
+                  <Image src={clientLogos} alt="Mudenda Capital" />
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

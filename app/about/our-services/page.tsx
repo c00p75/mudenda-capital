@@ -245,7 +245,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Project Financing Section */}
-      <section className="py-20 px-6 bg-white text-black">
+      <section className="py-20 px-6 bg-white text-black pl-28">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
