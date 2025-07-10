@@ -102,7 +102,7 @@ export default function AboutPage() {
                         alt="arrow-right"
                         width={20}
                         height={20}
-                        className="w-6 h-6 mt-2"
+                        className="w-6 h-6 mt-[2%]"
                       />
                     </p>
                   </div>
