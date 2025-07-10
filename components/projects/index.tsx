@@ -139,9 +139,9 @@ const Projects = () => {
                   className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
                   alt="Access World"
                 />
-                <div className="w-full ">
+                <div className="w-full uppercase">
                   <h3 className="text-4xl xl:text-6xl mb-4">ACCESS WORLD SA</h3>
-                  <p className="text-xl mb-4">CONTRACT VALUE: $3 million</p>
+                  <p className="text-xl mb-4">Contract Value: $3 Million</p>
                 </div>
                 <div className="w-full h-[0.3rem] bg-yellow-500 my-2 xl:my-10" />
                 <div className=" font-semibold px-3 py-2 rounded-full flex justify-end items-center gap-2 w-full">
@@ -197,7 +197,7 @@ const Projects = () => {
                 </div>
                 <div className="w-full h-[0.3rem] bg-yellow-500 my-2 xl:my-10" />
                 <div className=" font-semibold px-3 py-2 rounded-full flex justify-end items-center gap-2 w-full">
-                  <span className="text-2xl font-medium">Read more</span>
+                  {/* <span className="text-2xl font-medium">Read more</span>
                   <div className="w-10 h-10 rounded-full flex items-center justify-center">
                     <Image
                       src={"/arrow-right.png"}
@@ -205,7 +205,7 @@ const Projects = () => {
                       width={30}
                       height={30}
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
